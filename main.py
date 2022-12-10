@@ -1,5 +1,9 @@
 from dataload import DataLoad
+from datagraph import DataGraph
 
 data = DataLoad()
 
-print(data.rowList[1][0])
+graph = DataGraph()
+graph.dataToGraph(data)
+graph.visualize()
+
