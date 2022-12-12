@@ -1,9 +1,6 @@
-from dataload import DataLoad
-from datagraph import DataGraph
+from mainframe import MainFrame
 
-data = DataLoad()
-
-graph = DataGraph()
-graph.dataToGraph(data)
-graph.visualize()
+if __name__ == '__main__':
+    app = MainFrame()
+    app.mainloop()
 
