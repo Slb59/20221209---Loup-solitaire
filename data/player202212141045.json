@@ -1,0 +1,15 @@
+{
+  "name": "Osynia",
+  "title": "Initié",
+  "level": 1,
+  "combat_skill": 12,
+  "combat_skill_bonus": 1,
+  "combat_skill_malus": 2,
+  "endurance": 20,
+  "endurance_max": 25,
+  "meals": 3,
+  "kai_discipline":[
+  "Camouflage", "Sixième Sens", "Orientation", "Maîtrise des armes"
+  ],
+  "weapon_skill": "Hache"
+}
