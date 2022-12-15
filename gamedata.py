@@ -7,9 +7,15 @@ class GameData:
                        'Savant', 'Maître']
         self.kai_disciplines = {}
         self.load_disciplines()
+        self.chapters = {}
+        self.load_chapters()
 
     def load_disciplines(self):
         with io.open('data/kai_discipline.json', 'r', encoding='utf-8') as f:
+            self.kai_disciplines = json.load(f)
+
+    def load_chapters(self):
+        with io.open('data/chapters.json', 'r', encoding='utf-8') as f:
             self.kai_disciplines = json.load(f)
 
     def print(self):
@@ -19,7 +25,8 @@ class GameData:
         print(f'Discipline :')
         for key, value in self.kai_disciplines.items():
             print(f"{key}: {value}")
-            print('')
+        print('')
+        print('')
         print(f'Dernier fichier de sauvegarde : {self.last_game()}')
 
     def last_game(self):

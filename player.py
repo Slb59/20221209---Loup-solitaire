@@ -18,6 +18,9 @@ class Player:
         self.meals = 0
         self.special_items = []
 
+        self.current_chapter = 1
+        self.chapter_path = []
+
     def print(self):
         print('DESCRIPTION DU PROFIL JOUEUR')
         print(f'Nom : {self.name}')

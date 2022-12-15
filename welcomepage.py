@@ -1,8 +1,6 @@
-import tkinter as tk
-from tkinter import *
 import customtkinter
-from PIL import ImageTk, Image
-from functools import partial
+
+from mainpage import MainPage
 
 class WelcomePage(customtkinter.CTkFrame):
 
@@ -17,7 +15,7 @@ class WelcomePage(customtkinter.CTkFrame):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure((0, 1), weight=1)
 
-
+        self.player = self.controller.player
 
         self.create_widget()
 
@@ -26,7 +24,11 @@ class WelcomePage(customtkinter.CTkFrame):
         t = customtkinter.CTkLabel(master=self, text='Loup Solitaire', font=self.controller.titlefont)
         t.grid(row=0, column=0, columnspan=2, padx=20, pady=(20, 0), sticky="nsew")
 
-        t = customtkinter.CTkLabel(master=self, text='Joueur actif : ', font=self.controller.textfont)
+        if self.player.name == '':
+            t_actif_player = 'Pas de joueur actif'
+        else:
+            t_actif_player = f'Joueur actif : {self.player.name}, {self.player.title} de niveau {self.player.level}'
+        t = customtkinter.CTkLabel(master=self, text=t_actif_player, font=self.controller.textfont)
         t.grid(row=1, column=0, columnspan=2, padx=20, pady=(20, 0), sticky="nsew")
 
         button = customtkinter.CTkButton(
@@ -53,7 +55,7 @@ class WelcomePage(customtkinter.CTkFrame):
             master=self,
             cursor="hand2",
             command=lambda: self.button_function(),
-            text='Charger un profil',
+            text='Charger un autre profil',
             font=self.controller.choicefont,
             corner_radius=10,
             height=50)
@@ -62,11 +64,13 @@ class WelcomePage(customtkinter.CTkFrame):
         button = customtkinter.CTkButton(
             master=self,
             cursor="hand2",
-            command=lambda: self.button_function(),
+            command=lambda: self.controller.up_frame(MainPage),
             text="Démarrer l'aventure",
             font=self.controller.choicefont,
             corner_radius=10,
             height=50)
+        if self.player.name == '':
+            button.configure(state="disabled")
         button.grid(row=5, columnspan=2, padx=20, pady=(0, 20), sticky="ew")
 
 

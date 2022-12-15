@@ -15,4 +15,3 @@ with open(path, 'r', encoding='utf-8', errors='replace') as csv_file:
 
         with open('data/chapters.json', 'w', encoding='utf-8') as json_file:
             json_file.write(json.dumps(data, indent=4, ensure_ascii=False))
-

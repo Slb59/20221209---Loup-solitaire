@@ -1,15 +1,28 @@
 import tkinter as tk
 import customtkinter
-from tkinter import font as tkfont
+
 from welcomepage import WelcomePage
 from rulespage import RulesPage
+from mainpage import MainPage
 
+from player import Player
+from gamedata import GameData
 
 class MainFrame(customtkinter.CTk):
 
     def __init__(self, *args, **kwargs):
+
         customtkinter.CTk.__init__(self, *args, **kwargs)
 
+        # main data of game
+        self.gd = GameData()
+        self.gd.print()
+        print('')
+        self.player = Player()
+        self.player.loadfile(self.gd.last_game())
+        self.player.print()
+
+        # main appearance of game
         customtkinter.set_appearance_mode("dark")
         customtkinter.set_default_color_theme("assets/theme/loup.json")
 
@@ -22,22 +35,23 @@ class MainFrame(customtkinter.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure((0, 1), weight=1)
 
-        container = customtkinter.CTkFrame(master=self,
-                               corner_radius=10)
+        container = customtkinter.CTkFrame(
+            master=self,
+            corner_radius=10)
         container.pack(side="top", fill="both", expand=True)
-        #container.grid(row=0, column=0, columnspan=2, padx=20,  sticky="nsew")
 
         self.id = tk.StringVar()
         self.id.set('Loup solitaire')
 
+        # load the frames
         self.listening = {}
 
-        for F in (WelcomePage, RulesPage):
+        for F in (WelcomePage, RulesPage, MainPage):
             frame = F(parent=container, controller=self)
             self.listening[F] = frame
             frame.grid(row=0, column=0, columnspan=2, padx=20, pady=(20, 20), sticky="nsew")
 
-
+        # call the welcome page
         self.up_frame(WelcomePage)
 
     def up_frame(self, page_name):
