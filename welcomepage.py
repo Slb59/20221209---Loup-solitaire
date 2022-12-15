@@ -1,6 +1,6 @@
 import customtkinter
 
-from mainpage import MainPage
+from functools import partial
 
 class WelcomePage(customtkinter.CTkFrame):
 
@@ -61,7 +61,7 @@ class WelcomePage(customtkinter.CTkFrame):
         button = customtkinter.CTkButton(
             master=self,
             cursor="hand2",
-            command=lambda: self.controller.up_frame(MainPage),
+            command=partial(self.controller.up_frame, 'MainPage'),
             text="Démarrer l'aventure",
             font=self.controller.choicefont,
             height=50)

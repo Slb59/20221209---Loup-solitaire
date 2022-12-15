@@ -48,11 +48,12 @@ class MainFrame(customtkinter.CTk):
 
         for F in (WelcomePage, RulesPage, MainPage):
             frame = F(parent=container, controller=self)
-            self.listening[F] = frame
+            page_name = F.__name__
+            self.listening[page_name] = frame
             frame.grid(row=0, column=0, columnspan=2, padx=20, pady=(20, 20), sticky="nsew")
 
         # call the welcome page
-        self.up_frame(WelcomePage)
+        self.up_frame('WelcomePage')
 
     def up_frame(self, page_name):
         page = self.listening[page_name]
