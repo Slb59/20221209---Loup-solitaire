@@ -37,7 +37,6 @@ class WelcomePage(customtkinter.CTkFrame):
             command=lambda: self.button_function(),
             text='Règles du jeu',
             font=self.controller.choicefont,
-            corner_radius=10,
             height=50)
         button.grid(row=2, columnspan=2, padx=20, pady=(20, 20), sticky="ew")
 
@@ -47,7 +46,6 @@ class WelcomePage(customtkinter.CTkFrame):
             command=lambda: self.button_function(),
             text='Créer un nouveau profil',
             font=self.controller.choicefont,
-            corner_radius=10,
             height=50)
         button.grid(row=3, columnspan=2, padx=20, pady=(0, 20), sticky="ew")
 
@@ -57,7 +55,6 @@ class WelcomePage(customtkinter.CTkFrame):
             command=lambda: self.button_function(),
             text='Charger un autre profil',
             font=self.controller.choicefont,
-            corner_radius=10,
             height=50)
         button.grid(row=4, columnspan=2, padx=20, pady=(0, 20), sticky="ew")
 
@@ -67,7 +64,6 @@ class WelcomePage(customtkinter.CTkFrame):
             command=lambda: self.controller.up_frame(MainPage),
             text="Démarrer l'aventure",
             font=self.controller.choicefont,
-            corner_radius=10,
             height=50)
         if self.player.name == '':
             button.configure(state="disabled")

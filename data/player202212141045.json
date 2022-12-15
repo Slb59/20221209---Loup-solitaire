@@ -11,5 +11,6 @@
   "kai_discipline":[
   "Camouflage", "Sixième Sens", "Orientation", "Maîtrise des armes"
   ],
-  "weapon_skill": "Hache"
+  "weapon_skill": "Hache",
+  "current_chapter": 10
 }

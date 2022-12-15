@@ -13,7 +13,7 @@
     "border_color": ["gray65", "gray28"]
   },
   "CTkButton": {
-    "corner_radius": 6,
+    "corner_radius": 10,
     "border_width": 0,
     "fg_color": ["#3a7ebf", "#8c5930"],
     "hover_color": ["#325882", "#14375e"],
@@ -22,8 +22,8 @@
     "text_color_disabled": ["gray74", "gray60"]
   },
   "CTkLabel": {
-    "corner_radius": 0,
-    "fg_color": "transparent",
+    "corner_radius": 10,
+    "fg_color": "#30638c",
     "text_color": ["gray14", "gray84"]
   },
   "CTkEntry": {

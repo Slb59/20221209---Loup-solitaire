@@ -58,3 +58,4 @@ class Player:
         self.meals = data['meals']
         self.kai_discipline = data['kai_discipline']
         self.weapon_skill = data['weapon_skill']
+        self.current_chapter = data['current_chapter']
