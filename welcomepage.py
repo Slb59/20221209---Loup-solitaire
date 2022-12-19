@@ -34,7 +34,7 @@ class WelcomePage(customtkinter.CTkFrame):
         button = customtkinter.CTkButton(
             master=self,
             cursor="hand2",
-            command=lambda: self.button_function(),
+            command=partial(self.controller.up_frame, 'DisciplinePage'),
             text='Règles du jeu',
             font=self.controller.choicefont,
             height=50)

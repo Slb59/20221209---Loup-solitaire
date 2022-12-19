@@ -5,6 +5,7 @@ from welcomepage import WelcomePage
 from rulespage import RulesPage
 from mainpage import MainPage
 from playerpage import PlayerPage
+from disciplinespage import DisciplinePage
 
 from player import Player
 from gamedata import GameData
@@ -47,7 +48,7 @@ class MainFrame(customtkinter.CTk):
         # load the frames
         self.listening = {}
 
-        for F in (WelcomePage, RulesPage, MainPage, PlayerPage):
+        for F in (WelcomePage, RulesPage, MainPage, PlayerPage, DisciplinePage):
             frame = F(parent=container, controller=self)
             page_name = F.__name__
             self.listening[page_name] = frame
