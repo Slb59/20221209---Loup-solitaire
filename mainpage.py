@@ -47,7 +47,7 @@ class MainPage(customtkinter.CTkFrame):
         b = customtkinter.CTkButton(
                     master=menu_frame,
                     cursor="hand2",
-                    command=lambda: self.button_function(),
+                    command=partial(self.controller.up_frame, 'PlayerPage'),
                     image=i,
                     text='',
                     font=self.controller.choicefont,

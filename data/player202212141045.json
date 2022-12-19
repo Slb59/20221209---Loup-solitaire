@@ -2,6 +2,7 @@
   "name": "Osynia",
   "title": "Initié",
   "level": 1,
+  "state": "En super forme",
   "combat_skill": 12,
   "combat_skill_bonus": 1,
   "combat_skill_malus": 2,
@@ -11,6 +12,6 @@
   "kai_discipline":[
   "Camouflage", "Sixième Sens", "Orientation", "Maîtrise des armes"
   ],
-  "weapon_skill": "Hache",
+  "weapon_skill": "Poignard",
   "current_chapter": 140
 }

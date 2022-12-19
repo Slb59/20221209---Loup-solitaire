@@ -4,6 +4,7 @@ import customtkinter
 from welcomepage import WelcomePage
 from rulespage import RulesPage
 from mainpage import MainPage
+from playerpage import PlayerPage
 
 from player import Player
 from gamedata import GameData
@@ -30,7 +31,7 @@ class MainFrame(customtkinter.CTk):
         self.textfont = customtkinter.CTkFont(family="Raleway-Light", size=14, weight="normal", slant='roman')
         self.choicefont = customtkinter.CTkFont(family="Raleway-Light", size=16, weight="bold", slant='roman')
         self.title("Loup solitaire")
-        self.geometry("950x500+300+200")
+        self.geometry("950x600+300+150")
         self.minsize(300, 200)
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure((0, 1), weight=1)
@@ -46,7 +47,7 @@ class MainFrame(customtkinter.CTk):
         # load the frames
         self.listening = {}
 
-        for F in (WelcomePage, RulesPage, MainPage):
+        for F in (WelcomePage, RulesPage, MainPage, PlayerPage):
             frame = F(parent=container, controller=self)
             page_name = F.__name__
             self.listening[page_name] = frame

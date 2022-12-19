@@ -2,9 +2,11 @@ import json
 
 class Player:
     def __init__(self):
-        self.name = ''
-        self.title = ''
+        self.name = 'Inconnu'
+        self.title = 'Postulant'
         self.level = 0
+        self.state = 'En super forme'
+
         self.combat_skill = 0
         self.combat_skill_bonus = 0
         self.combat_skill_malus = 0
@@ -13,7 +15,10 @@ class Player:
 
         self.kai_discipline = []
         self.weapon_skill = ''
-        self.belt_pouch = {}
+        self.weapon1 = 'Hache'
+        self.weapon2 = 'Poignard'
+
+        self.belt_pouch = {"pièces d'or": 0, 'pierres précieuses': 0}
         self.backpack = []
         self.meals = 0
         self.special_items = []
@@ -21,10 +26,35 @@ class Player:
         self.current_chapter = 1
         self.chapter_path = []
 
+    def weapon_skill_text(self):
+        text = ''
+        if self.weapon_skill == 'Hache':
+            text = 'Maîtrise de la hache'
+        elif self.weapon_skill == 'Poignard':
+            text = 'Maîtrise du poignard'
+        elif self.weapon_skill == 'Lance':
+            text = 'Maîtrise de la lance'
+        elif self.weapon_skill == "Masse d'armes":
+            text = "Maîtrise de la masse d'armes"
+        elif self.weapon_skill == 'Sabre':
+            text = 'Maîtrise du sabre'
+        elif self.weapon_skill == 'Marteau':
+            text = 'Maîtrise du marteau de guerre'
+        elif self.weapon_skill == 'Epée':
+            text = "Maîtrise de l'épée"
+        elif self.weapon_skill == 'Bâton':
+            text = 'Maîtrise du bâton'
+        elif self.weapon_skill == 'Glaive':
+            text = 'Maîtrise du glaive'
+        else:
+            text = ''
+        return text
+
     def print(self):
         print('DESCRIPTION DU PROFIL JOUEUR')
         print(f'Nom : {self.name}')
         print(f'Rang: {self.title} de niveau {self.level}')
+        print(f'Etat: {self.state}')
         print(f'Habilité: {self.combat_skill}')
         print(f'Bonus habilité: {self.combat_skill_bonus}')
         print(f'Malus habilité: {self.combat_skill_malus}')
@@ -50,6 +80,7 @@ class Player:
         self.name = data['name']
         self.title = data['title']
         self.level = data['level']
+        self.state = data['state']
         self.combat_skill = data['combat_skill']
         self.combat_skill_bonus = data['combat_skill_bonus']
         self.combat_skill_malus = data['combat_skill_malus']
